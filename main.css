@@ -11,6 +11,10 @@ body {
   text-align: center;
 }
 
+.introRoot h1 {
+  color: white;
+}
+
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }

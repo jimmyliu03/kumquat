@@ -12,9 +12,7 @@ var Kumquat = React.createClass({
       return <KumquatIntro onClick={this._handleIntroClick} />
     }
 
-    return (
-      <div> Enter your name: </div>
-    );
+    return <KumquatMain />
   },
 
   _handleIntroClick: function() {
@@ -40,7 +38,20 @@ var KumquatIntro = React.createClass({
       </div>
     );
   },
-})
+});
+
+var KumquatMain = React.createClass({
+  render: function() {
+    return (
+      <div className="mainRoot">
+        <h1>
+          My country of residence is:
+        </h1>
+      </div>
+    );
+  },
+});
+
 React.render(
   <Kumquat />,
   document.getElementById('root')

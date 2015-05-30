@@ -41,12 +41,32 @@ var KumquatIntro = React.createClass({
 });
 
 var KumquatMain = React.createClass({
+
+  componentDidMount: function() {
+    var countries = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  // url points to a json file that contains an array of country names, see
+  // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
+  prefetch: '../countries.json'
+});
+ 
+// passing in `null` for the `options` arguments will result in the default
+// options being used
+$('#prefetch .typeahead').typeahead(null, {
+  name: 'countries',
+  source: countries
+});
+  },
   render: function() {
     return (
       <div className="mainRoot">
         <h1>
           My country of residence is:
         </h1>
+          <div id="prefetch">
+            <input className="typeahead" type="text" placeholder="Countries"/>
+          </div>
       </div>
     );
   },

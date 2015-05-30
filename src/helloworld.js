@@ -26,9 +26,12 @@ var KumquatIntro = React.createClass({
   render: function() {
     return (
       <div>
-        <div>
-          Welcome to Kumquat
-        </div>
+        <h1>
+          Hi, we're Kumquat.
+        </h1>
+        <h1>
+          We'll help you find the answers to your immigration problems.
+        </h1>
         <button
           onClick={this.props.onClick}>
           Get started

@@ -17,7 +17,8 @@ body {
   background: url(new_arrow.png) no-repeat right;
   border:none;
   box-shadow:none;
-  color:#8DD397;
+  color:white;
+  /*color:#8DD397;*/
   appearance:none;
 }
 
@@ -94,6 +95,12 @@ body {
 .twitter-typeahead {
   background: rgb(66, 66, 186);
   top:8px;
+}
+
+#localVideo {
+  position:absolute;
+  left:5px;
+  bottom:15px;
 }
 
 .tt-input, /* UPDATE: newer versions use tt-input instead of tt-query */

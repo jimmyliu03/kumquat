@@ -161,10 +161,25 @@ var KumquatMain = React.createClass({
 
   _renderStudy: function() {
     if (this.state.purpose === 'study') {
+
+      var webrtc = new SimpleWebRTC({
+        // the id/element dom element that will hold "our" video
+        localVideoEl: 'localVideo',
+        // the id/element dom element that will hold remote videos
+        remoteVideosEl: 'remotesVideos',
+        // immediately ask for camera access
+        autoRequestMedia: true
+      });
+      webrtc.on('readyToCall', function () {
+        // you can name it anything
+        webrtc.joinRoom('kumquat');
+      });
       return (
         <div className="fadeIn">
         <h1> Get an F visa.</h1> <br />
         <h1> If you're doing a vocational program, then you'll need an M visa</h1>
+        <video height="100" id="localVideo"></video>
+        <div id="remotesVideos"></div>
         </div>
       );
     }

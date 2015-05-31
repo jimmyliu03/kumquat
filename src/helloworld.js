@@ -86,6 +86,7 @@ var KumquatMain = React.createClass({
         <br />
         {this._renderPurpose()}
         {this._renderStudy()}
+        {this._renderOffer()}
       </div>
     );
   },
@@ -95,7 +96,7 @@ var KumquatMain = React.createClass({
       return (
         <div className="fadeIn">
         <h1> I want to come to the US to</h1>
-        <select id="purpose" onChange={this._handleChange}>
+        <select id="purpose" onChange={this._handlePurposeChange}>
           <option value="work">work</option>
           <option value="study">study</option>
           <option value="visit">visit</option>
@@ -112,11 +113,43 @@ var KumquatMain = React.createClass({
     if (this.state.purpose === 'study') {
       return (
         <div className="fadeIn">
+        <h1> Get an F visa</h1>
+        <h1> If you're doing a vocational program, then you'll need an M visa</h1>
+        </div>
+      );
+    }
+
+    if (this.state.purpose === 'work') {
+      return (
+        <div className="fadeIn">
         <h1> The highest degree I've completed is</h1>
-        <select id="study" onChange={this._handleStudyChange}>
+        <select id="degree" onChange={this._handleStudyChange}>
           <option value="highschool">high school or lower</option>
           <option value="bachelors">Bachelor's</option>
           <option value="masters">Master's or higher</option>
+        </select>
+        </div>
+      );
+    }
+    return null;
+  },
+
+  _renderOffer: function() {
+    if (this.state.study === 'highschool') {
+      return (
+        <div className="fadeIn">
+        <h1> Go back to school</h1>
+        </div>
+      );
+    }
+
+    if (this.state.study === 'bachelors' || this.state.study === 'masters') {
+      return (
+        <div className="fadeIn">
+        <h1>I</h1>
+        <select id="degree" onChange={this._handleStudyChange}>
+          <option value="offer">have an offer from a US employer</option>
+          <option value="transfer">am transferring to a US branch of my current company</option>
         </select>
         </div>
       );
@@ -130,7 +163,7 @@ var KumquatMain = React.createClass({
     }
   },
 
-  _handleChange: function(e) {
+  _handlePurposeChange: function(e) {
     this.setState({purpose: e.target.value});
   },
 

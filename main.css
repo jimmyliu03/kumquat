@@ -1,6 +1,9 @@
 body {
+  font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
 	background: rgb(66, 66, 186);
 	margin-top: 70px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 
@@ -19,6 +22,7 @@ body {
 .introRoot h1,
 .mainRoot h1 {
   color: white;
+  font-weight: 300;
 }
 
 .mainRoot {

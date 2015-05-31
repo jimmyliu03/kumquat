@@ -24,6 +24,7 @@ var KumquatIntro = React.createClass({
   render: function() {
     return (
       <div className="introRoot fadeIn">
+      <img className = "logo" src="kumquat.png"/>
         <h1>
           Hi, we're Kumquat.
         </h1>

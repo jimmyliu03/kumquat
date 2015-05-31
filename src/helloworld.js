@@ -35,7 +35,7 @@ var KumquatIntro = React.createClass({
         });
 
     setTimeout(function() {
-      $('.hidden-button').removeClass('hidden-button').addClass('fadeIn');
+      $('.hidden-button').removeClass('hidden-button').addClass('fadeIn').focus();
     }, 4000);
    },
   render: function() {

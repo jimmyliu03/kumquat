@@ -21,10 +21,6 @@ body {
   appearance:none;
 }
 
-select:focus {
-box-shadow: none !important;
-}
-
 .logo {
   height:50%;
   width:10%;
@@ -185,12 +181,12 @@ box-shadow: none !important;
   display: none;
 }
 
+
 .hidden-nav {
   display:none;
 }
 
-*:focus {
-  outline: none;
+
+select:focus {
   box-shadow: none!important;
-  border:none!important;
 }

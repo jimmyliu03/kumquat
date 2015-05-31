@@ -69,6 +69,9 @@ var KumquatMain = React.createClass({
     if (this.state.purpose === 'study' && prevState.purpose !== 'study') {
       $('#study').focus();
     }
+    if (this.state.study !== prevState.study) {
+      $('#offer').focus();
+    }
   },
 
   render: function() {
@@ -96,7 +99,7 @@ var KumquatMain = React.createClass({
       return (
         <div className="fadeIn">
         <h1> I want to come to the US to</h1>
-        <select id="purpose" onChange={this._handlePurposeChange}>
+        <select id="purpose" onChange={this._handlePurposeChange} value={this.state.purpose}>
           <option value="work">work</option>
           <option value="study">study</option>
           <option value="visit">visit</option>
@@ -113,7 +116,7 @@ var KumquatMain = React.createClass({
     if (this.state.purpose === 'study') {
       return (
         <div className="fadeIn">
-        <h1> Get an F visa</h1>
+        <h1> Get an F visa.</h1> <br />
         <h1> If you're doing a vocational program, then you'll need an M visa</h1>
         </div>
       );
@@ -123,7 +126,7 @@ var KumquatMain = React.createClass({
       return (
         <div className="fadeIn">
         <h1> The highest degree I've completed is</h1>
-        <select id="degree" onChange={this._handleStudyChange}>
+        <select id="degree" onChange={this._handleStudyChange} value={this.state.study}>
           <option value="highschool">high school or lower</option>
           <option value="bachelors">Bachelor's</option>
           <option value="masters">Master's or higher</option>
@@ -135,6 +138,9 @@ var KumquatMain = React.createClass({
   },
 
   _renderOffer: function() {
+    if (this.state.purpose !== 'work') {
+      return null;
+    }
     if (this.state.study === 'highschool') {
       return (
         <div className="fadeIn">
@@ -147,7 +153,7 @@ var KumquatMain = React.createClass({
       return (
         <div className="fadeIn">
         <h1>I</h1>
-        <select id="degree" onChange={this._handleStudyChange}>
+        <select id="offer" onChange={this._handleOfferChange} value={this.state.offer}>
           <option value="offer">have an offer from a US employer</option>
           <option value="transfer">am transferring to a US branch of my current company</option>
         </select>
@@ -169,6 +175,10 @@ var KumquatMain = React.createClass({
 
   _handleStudyChange: function(e) {
     this.setState({study: e.target.value});
+  },
+
+  _handleOfferChange: function(e) {
+    this.setState({offer: e.target.value});
   },
 });
 

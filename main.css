@@ -167,3 +167,6 @@ box-shadow: none !important;
   background-color: red;
 }
 
+.hidden-button {
+  display: none;
+}

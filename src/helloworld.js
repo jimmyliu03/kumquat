@@ -33,6 +33,10 @@ var KumquatIntro = React.createClass({
           typeSpeed: 0,
           showCursor: false
         });
+
+    setTimeout(function() {
+      $('.hidden-button').removeClass('hidden-button').addClass('fadeIn');
+    }, 4000);
    },
   render: function() {
     return (
@@ -44,7 +48,7 @@ var KumquatIntro = React.createClass({
         <h1>
         </h1>
         <br />
-        <button className = "btn btn-default"
+        <button className="btn btn-default hidden-button"
           onClick={this.props.onClick}>
           Get started
         </button>

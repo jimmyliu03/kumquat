@@ -23,7 +23,7 @@ var Kumquat = React.createClass({
 var KumquatIntro = React.createClass({
   render: function() {
     return (
-      <div className="introRoot">
+      <div className="introRoot fadeIn">
         <h1>
           Hi, we're Kumquat.
         </h1>
@@ -41,34 +41,65 @@ var KumquatIntro = React.createClass({
 });
 
 var KumquatMain = React.createClass({
+  getInitialState: function() {
+    return {stage: 'country'};
+  },
 
   componentDidMount: function() {
     var countries = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.whitespace,
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
-  // url points to a json file that contains an array of country names, see
-  // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
-  prefetch: '../countries.json'
-});
- 
-// passing in `null` for the `options` arguments will result in the default
-// options being used
-$('#prefetch .typeahead').typeahead(null, {
-  name: 'countries',
-  source: countries
-});
+      datumTokenizer: Bloodhound.tokenizers.whitespace,
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      // url points to a json file that contains an array of country names, see
+      // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
+      prefetch: '../countries.json'
+    });
+
+    // passing in `null` for the `options` arguments will result in the default
+    // options being used
+    $('#prefetch .typeahead').typeahead(null, {
+      name: 'countries',
+      source: countries
+    });
   },
+
   render: function() {
     return (
-      <div className="mainRoot">
+      <div className="mainRoot fadeIn">
         <h1>
           My country of residence is:
         </h1>
-          <div id="prefetch">
-            <input className="typeahead" type="text" placeholder="Countries"/>
-          </div>
+        <div id="prefetch">
+          <input
+            className="typeahead"
+            onKeyPress={this._handleEnter}
+            type="text" />
+        </div>
+        <br />
+        {this._renderEmployment()}
       </div>
     );
+  },
+
+  _renderEmployment: function() {
+    if (this.state.stage === 'employment') {
+      return (
+        <div className="fadeIn">
+        <h1> I am currently: </h1>
+        <select>
+          <option value="student">a student</option>
+          <option value="employed">employed</option>
+          <option value="unemployed">unemployed</option>
+        </select>
+        </div>
+      );
+    }
+    return null;
+  },
+
+  _handleEnter: function(e) {
+    if (e.key === 'Enter') {
+      this.setState({stage: 'employment'});
+    }
   },
 });
 

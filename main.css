@@ -4,17 +4,35 @@ body {
 }
 
 
-.introRoot {
+.fadeIn {
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
         -ms-animation: fadein 2s; /* Internet Explorer */
          -o-animation: fadein 2s; /* Opera < 12.1 */
             animation: fadein 2s;
+}
+
+.introRoot {
   text-align: center;
 }
 
-.introRoot h1 {
+.introRoot h1,
+.mainRoot h1 {
   color: white;
+}
+
+.mainRoot {
+  text-align: center;
+}
+
+.mainRoot h1 {
+  display: inline-block;
+}
+
+#prefetch {
+  display: inline-block;
+  margin-left: 24px;
+  vertical-align: text-bottom;
 }
 
 @keyframes fadein {

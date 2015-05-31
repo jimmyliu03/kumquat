@@ -62,6 +62,15 @@ var KumquatMain = React.createClass({
     }).focus();
   },
 
+  componentDidUpdate: function(prevProps, prevState) {
+    if (this.state.stage === 'purpose' && prevState.stage !== 'purpose') {
+      $('#purpose').focus();
+    }
+    if (this.state.purpose === 'study' && prevState.purpose !== 'study') {
+      $('#study').focus();
+    }
+  },
+
   render: function() {
     return (
       <div className="mainRoot fadeIn">
@@ -75,20 +84,39 @@ var KumquatMain = React.createClass({
             type="text" />
         </div>
         <br />
-        {this._renderEmployment()}
+        {this._renderPurpose()}
+        {this._renderStudy()}
       </div>
     );
   },
 
-  _renderEmployment: function() {
-    if (this.state.stage === 'employment') {
+  _renderPurpose: function() {
+    if (this.state.stage === 'purpose') {
       return (
         <div className="fadeIn">
-        <h1> I am currently</h1>
-        <select>
-          <option value="student">a student</option>
-          <option value="employed">employed</option>
-          <option value="unemployed">unemployed</option>
+        <h1> I want to come to the US to</h1>
+        <select id="purpose" onChange={this._handleChange}>
+          <option value="work">work</option>
+          <option value="study">study</option>
+          <option value="visit">visit</option>
+          <option value="invest">invest</option>
+          <option value="live">live permanently</option>
+        </select>
+        </div>
+      );
+    }
+    return null;
+  },
+
+  _renderStudy: function() {
+    if (this.state.purpose === 'study') {
+      return (
+        <div className="fadeIn">
+        <h1> The highest degree I've completed is</h1>
+        <select id="study" onChange={this._handleStudyChange}>
+          <option value="highschool">high school or lower</option>
+          <option value="bachelors">Bachelor's</option>
+          <option value="masters">Master's or higher</option>
         </select>
         </div>
       );
@@ -97,9 +125,17 @@ var KumquatMain = React.createClass({
   },
 
   _handleEnter: function(e) {
-    if (e.key === 'Enter') {
-      this.setState({stage: 'employment'});
+    if (e.key === 'Enter' && this.state.stage === 'country') {
+      this.setState({stage: 'purpose'});
     }
+  },
+
+  _handleChange: function(e) {
+    this.setState({purpose: e.target.value});
+  },
+
+  _handleStudyChange: function(e) {
+    this.setState({study: e.target.value});
   },
 });
 

@@ -157,3 +157,6 @@ body {
   background-color: red;
 }
 
+.hidden-button {
+  display: none;
+}

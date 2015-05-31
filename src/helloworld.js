@@ -31,7 +31,7 @@ var KumquatIntro = React.createClass({
           We'll help you with your immigration situation.
         </h1>
         <br />
-        <button
+        <button className = "btn btn-default"
           onClick={this.props.onClick}>
           Get started
         </button>
@@ -99,7 +99,7 @@ var KumquatMain = React.createClass({
       return (
         <div className="fadeIn">
         <h1> I want to come to the US to</h1>
-        <select id="purpose" onChange={this._handlePurposeChange} value={this.state.purpose}>
+        <select id="purpose" className="form-control" onChange={this._handlePurposeChange} value={this.state.purpose}>
           <option value="work">work</option>
           <option value="study">study</option>
           <option value="visit">visit</option>

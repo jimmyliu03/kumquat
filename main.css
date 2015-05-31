@@ -43,6 +43,15 @@ body {
 
 }
 
+.slideUp {
+      -webkit-animation: slideUp 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: slideUp 1s; /* Firefox < 16 */
+        -ms-animation: slideUp 1s; /* Internet Explorer */
+         -o-animation: slideUp 1s; /* Opera < 12.1 */
+            animation: slideUp 1s;
+
+}
+
 .introRoot {
   text-align: center;
   margin-top:200px;
@@ -78,6 +87,10 @@ body {
   to { top:0px;}
 }
 
+@keyframes slideUp {
+  from { top:0px;}
+  to { top:-51px;}
+}
 .twitter-typeahead {
   background: rgb(66, 66, 186);
   top:8px;

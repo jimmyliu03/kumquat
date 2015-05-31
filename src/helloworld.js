@@ -81,6 +81,12 @@ var KumquatMain = React.createClass({
       name: 'countries',
       source: countries
     }).focus();
+    setTimeout(function() {
+      $('.slideDown').removeClass('slideDown').addClass('slideUp');
+    }, 0);
+    setTimeout(function() {
+      $('.slideUp').addClass('hidden-nav');
+    }, 1000);
   },
 
   componentDidUpdate: function(prevProps, prevState) {

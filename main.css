@@ -6,6 +6,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+h2 {
+  color:white;
+}
+
+.loader-inner {
+  left: 50%;
+}
+
+.ball-scale-multiple {
+  margin-top:40px;
+  margin-bottom:40px;
+}
+
 .form-control {
   display:inline;
   width:280px;
@@ -22,6 +35,9 @@ body {
   appearance:none;
 }
 
+.showLoader {
+  display:block;
+}
 .logo {
   height:50%;
   width:10%;
@@ -35,6 +51,21 @@ body {
             animation: fadein 2s;
 }
 
+.fadeIn2 {
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+}
+
+.fadeOut {
+      -webkit-animation: fadeout 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadeout 1s; /* Firefox < 16 */
+        -ms-animation: fadeout 1s; /* Internet Explorer */
+         -o-animation: fadeout  1s; /* Opera < 12.1 */
+            animation: fadeout 1s;
+}
 .slideDown {
       -webkit-animation: slideDown 1s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: slideDown 1s; /* Firefox < 16 */
@@ -81,6 +112,11 @@ body {
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
+}
+
+@keyframes fadeout {
+  from {opacity:1 ;}
+  to   {opacity:0 ;}
 }
 
 @keyframes slideDown {
@@ -198,7 +234,7 @@ body {
 }
 
 .hidden-button {
-  display: none;
+  display: none !important;
 }
 
 

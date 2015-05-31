@@ -61,6 +61,8 @@ var KumquatIntro = React.createClass({
   },
 });
 
+
+
 var KumquatMain = React.createClass({
   getInitialState: function() {
     return {stage: 'country', confidence: '0%'};
@@ -117,10 +119,10 @@ var KumquatMain = React.createClass({
   render: function() {
     return (
       <div className="mainRoot fadeIn">
-        <h1>
+        <h1 className="fadeIn2">
           My country of citizenship is
         </h1>
-        <div id="prefetch">
+        <div className="fadeIn2" id="prefetch">
           <input
             className="typeahead"
             onKeyPress={this._handleEnter}
@@ -143,15 +145,15 @@ var KumquatMain = React.createClass({
   _renderPurpose: function() {
     if (this.state.stage === 'purpose') {
       return (
-        <div className="fadeIn">
+        <div className="fadeIn2">
         <h1> I want to come to the US to</h1>
         <select id="purpose" className="form-control" onChange={this._handlePurposeChange} value={this.state.purpose}>
           <option selected={!this.state.purpose} disabled hidden value=''></option>
-          <option value="work">work</option>
-          <option value="study">study</option>
-          <option value="visit">visit</option>
-          <option value="invest">invest</option>
-          <option value="live">live permanently</option>
+          <option value="work">work.</option>
+          <option value="study">study.</option>
+          <option value="visit">visit.</option>
+          <option value="invest">invest.</option>
+          <option value="live">live permanently.</option>
         </select>
         </div>
       );
@@ -175,7 +177,7 @@ var KumquatMain = React.createClass({
         webrtc.joinRoom('kumquatstudy');
       });
       return (
-        <div className="fadeIn">
+        <div className="fadeIn2">
         <h1> Get an F visa.</h1> <br />
         <h1> If you're doing a vocational program, then you'll need an M visa</h1>
         <video height="100" id="localVideo"></video>
@@ -186,13 +188,13 @@ var KumquatMain = React.createClass({
 
     if (this.state.purpose === 'work') {
       return (
-        <div className="fadeIn">
+        <div className="fadeIn2">
         <h1> The highest degree I've completed is</h1>
         <select id="degree" className="form-control" onChange={this._handleStudyChange} value={this.state.study}>
           <option selected={!this.state.study} disabled hidden value=''></option>
-          <option value="highschool">high school or lower</option>
-          <option value="bachelors">Bachelor's</option>
-          <option value="masters">Master's or higher</option>
+          <option value="highschool">high school or lower.</option>
+          <option value="bachelors">Bachelor's.</option>
+          <option value="masters">Master's or higher.</option>
         </select>
         </div>
       );
@@ -206,7 +208,7 @@ var KumquatMain = React.createClass({
     }
     if (this.state.study === 'highschool') {
       return (
-        <div className="fadeIn">
+        <div className="fadeIn2">
         <h1> Go back to school</h1>
         </div>
       );
@@ -214,7 +216,7 @@ var KumquatMain = React.createClass({
 
     if (this.state.study === 'bachelors' || this.state.study === 'masters') {
       return (
-        <div className="fadeIn">
+        <div className="fadeIn2">
         <h1>I</h1>
 
         <select id="offer" className="form-control" onChange={this._handleOfferChange} value={this.state.offer}>
@@ -235,21 +237,30 @@ var KumquatMain = React.createClass({
     if (this.state.offer === 'offer') {
       if (this.state.country === 'Mexico' || this.state.country === 'Canada') {
         return (
-          <div className="fadeIn">
+          <div>
+          <div className="fadeIn2">
             <h1>Get a TN or H1B visa</h1>
-            <div className="loader-inner ball-scale-multiple hidden-button">
+          </div>
+         <video height="100" id="localVideo"></video>
+        <div id="remotesVideos"></div>
+            <div id= "loader1" className="fadeIn loader-inner ball-scale-multiple hidden-button showLoader">
               <div></div>
               <div></div>
               <div></div>
+
+            </div>
+            <div id = "loader2" className="loader-inner connecting hidden-button showLoader">
+              <h2>Connecting...</h2>
+
             </div>
             <br />
-            <button id="callButton" className = "btn btn-default" onClick={this._handleCall}>Call an experienced attorney</button>
+            <button id="callButton" className = "btn fadeIn2 btn-default" onClick={this._handleCall}>Call an experienced attorney</button>
           
-          </div>
+            </div>
         );
       }
       return (
-        <div className="fadeIn">
+        <div className="fadeIn2">
           <h1>Get an H1B visa</h1>
         </div>
       );
@@ -257,7 +268,7 @@ var KumquatMain = React.createClass({
 
     if (this.state.offer === 'transfer') {
       return (
-        <div className="fadeIn">
+        <div className="fadeIn2">
           <h1>Get an L1A visa</h1>
         </div>
       );
@@ -268,6 +279,41 @@ var KumquatMain = React.createClass({
 
   _handleCall: function(e) {
     $('#callButton').addClass('hidden-button');
+
+            setTimeout(function() {
+          $('.fadeIn2').addClass('fadeOut');
+        }, 100);
+            setTimeout(function() {
+          $('.fadeIn2').addClass('hidden-button');
+        }, 1100);
+
+          setTimeout(function() {
+            $('.loader-inner').removeClass('hidden-button');
+          }, 1300);
+
+          setTimeout(function() {
+              $('.loader-inner').addClass('fadeOut');
+            }, 4000);
+        setTimeout(function() {
+              $('.loader-inner').addClass('hidden-button');
+            }, 5000);
+        setTimeout(function() {
+
+              var webrtc = new SimpleWebRTC({
+            // the id/element dom element that will hold "our" video
+            localVideoEl: 'localVideo',
+            // the id/element dom element that will hold remote videos
+            remoteVideosEl: 'remotesVideos',
+            // immediately ask for camera access
+            autoRequestMedia: true
+          });
+          webrtc.on('readyToCall', function () {
+            // you can name it anything
+            webrtc.joinRoom('kumquattn');
+          });
+
+        }, 5000);
+     
 
   },
 

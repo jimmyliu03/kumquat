@@ -36,7 +36,7 @@ var KumquatIntro = React.createClass({
 
     setTimeout(function() {
       $('.hidden-button').removeClass('hidden-button').addClass('fadeIn').focus();
-    }, 4000);
+    }, 100);
 
       setTimeout(function() {
       $('.hidden-nav').removeClass('hidden-nav').addClass('slideDown');
@@ -172,7 +172,7 @@ var KumquatMain = React.createClass({
       });
       webrtc.on('readyToCall', function () {
         // you can name it anything
-        webrtc.joinRoom('kumquat');
+        webrtc.joinRoom('kumquatstudy');
       });
       return (
         <div className="fadeIn">
@@ -237,6 +237,14 @@ var KumquatMain = React.createClass({
         return (
           <div className="fadeIn">
             <h1>Get a TN or H1B visa</h1>
+            <div className="loader-inner ball-scale-multiple hidden-button">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <br />
+            <button id="callButton" className = "btn btn-default" onClick={this._handleCall}>Call an experienced attorney</button>
+          
           </div>
         );
       }
@@ -256,6 +264,11 @@ var KumquatMain = React.createClass({
     }
 
     return null;
+  },
+
+  _handleCall: function(e) {
+    $('#callButton').addClass('hidden-button');
+
   },
 
   _handleEnter: function(e) {

@@ -6,6 +6,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.form-control {
+  display:inline;
+  width:80px;
+  margin-left:10px;
+}
 
 .fadeIn {
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
@@ -46,7 +51,7 @@ body {
 
 .twitter-typeahead {
   background: rgb(66, 66, 186);
-  top:5px;
+  top:8px;
 }
 
 .tt-input, /* UPDATE: newer versions use tt-input instead of tt-query */

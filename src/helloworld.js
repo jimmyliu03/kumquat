@@ -21,15 +21,27 @@ var Kumquat = React.createClass({
 });
 
 var KumquatIntro = React.createClass({
+
+  componentDidMount: function() {
+     $(".introRoot h1:first-of-type").typed({
+              strings: ["^500 Hi, we're Kumquat."],
+              typeSpeed: 0,
+              showCursor: false
+            });
+      $(".introRoot h1:last-of-type").typed({
+          strings: ["^2000 We'll help you with your immigration situation."],
+          typeSpeed: 0,
+          showCursor: false
+        });
+   },
   render: function() {
     return (
       <div className="introRoot fadeIn">
       <img className = "logo" src="kumquat.png"/>
+
         <h1>
-          Hi, we're Kumquat.
         </h1>
         <h1>
-          We'll help you with your immigration situation.
         </h1>
         <br />
         <button className = "btn btn-default"

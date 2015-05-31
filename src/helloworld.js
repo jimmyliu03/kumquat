@@ -78,6 +78,13 @@ var KumquatMain = React.createClass({
       $('#offer').focus();
     }
 
+    if (this.state.country === 'North Korea') {
+      confidence = 0;
+    } else {
+      confidence = 0.5;
+    }
+
+    this.setState({confidence: confidence*100 + '%'});
   },
 
   render: function() {

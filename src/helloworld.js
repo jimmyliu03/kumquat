@@ -156,6 +156,7 @@ var KumquatMain = React.createClass({
       return (
         <div className="fadeIn">
         <h1>I</h1>
+
         <select id="offer" className="form-control" onChange={this._handleOfferChange} value={this.state.offer}>
           <option disabled hidden value=''></option>
           <option value="offer">have an offer from a US employer</option>

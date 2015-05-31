@@ -59,14 +59,14 @@ var KumquatMain = React.createClass({
     $('#prefetch .typeahead').typeahead(null, {
       name: 'countries',
       source: countries
-    });
+    }).focus();
   },
 
   render: function() {
     return (
       <div className="mainRoot fadeIn">
         <h1>
-          My country of residence is:
+          My country of citizenship is
         </h1>
         <div id="prefetch">
           <input
@@ -84,7 +84,7 @@ var KumquatMain = React.createClass({
     if (this.state.stage === 'employment') {
       return (
         <div className="fadeIn">
-        <h1> I am currently: </h1>
+        <h1> I am currently</h1>
         <select>
           <option value="student">a student</option>
           <option value="employed">employed</option>

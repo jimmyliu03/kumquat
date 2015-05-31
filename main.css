@@ -108,3 +108,18 @@ body {
 .dropdown {
   display: inline-block;
 }
+
+.progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(66, 66, 186);
+  border: none;
+  height: 4px;
+  margin: 0;
+}
+
+.progress-bar {
+  background-color: red;
+}

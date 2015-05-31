@@ -55,7 +55,7 @@ var KumquatIntro = React.createClass({
 
 var KumquatMain = React.createClass({
   getInitialState: function() {
-    return {stage: 'country', confidence: '70%'};
+    return {stage: 'country', confidence: '0%'};
   },
 
   componentDidMount: function() {
@@ -76,7 +76,6 @@ var KumquatMain = React.createClass({
   },
 
   componentDidUpdate: function(prevProps, prevState) {
-    var confidence = 0;
     if (this.state.stage === 'purpose' && prevState.stage !== 'purpose') {
       $('#purpose').focus();
     }
@@ -89,14 +88,16 @@ var KumquatMain = React.createClass({
     if (this.state.study !== prevState.study) {
       $('#offer').focus();
     }
+  },
 
-    if (this.state.country === 'North Korea') {
+  componentWillUpdate: function(nextProps, nextState) {
+    var confidence = 0;
+    if (nextState.country === 'North Korea') {
       confidence = 0;
     } else {
       confidence = 0.5;
     }
-
-    this.setState({confidence: confidence*100 + '%'});
+    this._confidence = 100*confidence+'%';
   },
 
   render: function() {
@@ -118,7 +119,7 @@ var KumquatMain = React.createClass({
         {this._renderWorkVisa()}
         <div className="progress">
           <div className="progress-bar" role="progressbar"
-          aria-valuemin="0" aria-valuemax="100" style={{width:this.state.confidence}}>
+          aria-valuemin="0" aria-valuemax="100" style={{width:this._confidence}}>
           </div>
         </div>
       </div>

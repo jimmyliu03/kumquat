@@ -69,6 +69,9 @@ var KumquatMain = React.createClass({
     if (this.state.purpose === 'study' && prevState.purpose !== 'study') {
       $('#study').focus();
     }
+    if (this.state.purpose === 'work' && prevState.purpose !== 'work') {
+      $('#degree').focus();
+    }
     if (this.state.study !== prevState.study) {
       $('#offer').focus();
     }
@@ -101,7 +104,7 @@ var KumquatMain = React.createClass({
         <div className="fadeIn">
         <h1> I want to come to the US to</h1>
         <select id="purpose" className="form-control" onChange={this._handlePurposeChange} value={this.state.purpose}>
-          <option disabled hidden value=''></option>
+          <option selected={!this.state.purpose} disabled hidden value=''></option>
           <option value="work">work</option>
           <option value="study">study</option>
           <option value="visit">visit</option>
@@ -129,7 +132,7 @@ var KumquatMain = React.createClass({
         <div className="fadeIn">
         <h1> The highest degree I've completed is</h1>
         <select id="degree" className="form-control" onChange={this._handleStudyChange} value={this.state.study}>
-          <option disabled hidden value=''></option>
+          <option selected={!this.state.study} disabled hidden value=''></option>
           <option value="highschool">high school or lower</option>
           <option value="bachelors">Bachelor's</option>
           <option value="masters">Master's or higher</option>
@@ -158,7 +161,7 @@ var KumquatMain = React.createClass({
         <h1>I</h1>
 
         <select id="offer" className="form-control" onChange={this._handleOfferChange} value={this.state.offer}>
-          <option disabled hidden value=''></option>
+          <option selected={!this.state.offer} disabled hidden value=''></option>
           <option value="offer">have an offer from a US employer</option>
           <option value="transfer">am transferring to a US branch of my current company</option>
         </select>

@@ -8,8 +8,11 @@ body {
 
 .form-control {
   display:inline;
-  width:80px;
+  width:280px;
   margin-left:10px;
+  position:relative;
+  font-size:36px;
+  height:50px;
 }
 
 .fadeIn {

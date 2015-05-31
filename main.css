@@ -139,11 +139,22 @@ h2 {
   bottom:15px;
 }
 
+#purpose {
+  width:140px;
+}
+
+#degree {
+  width:240px;
+}
+
+#offer {
+  width: 630px;
+}
 .tt-input, /* UPDATE: newer versions use tt-input instead of tt-query */
 .tt-hint {
     background-color: rgb(66, 66, 186) !important;
     color: white;
-    width: 300px;
+    width: 133px;
     font-weight: 600;
     height: 1.1;
     font-size: 36px;
@@ -217,6 +228,14 @@ h2 {
     100% { opacity:1; }
 }
 */
+
+#loader1 {
+  margin-top:300px;
+}
+
+#loader2 {
+ padding-top:25px;
+}
 
 .progress {
   position: absolute;

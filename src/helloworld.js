@@ -108,7 +108,7 @@ var KumquatMain = React.createClass({
 
   componentWillUpdate: function(nextProps, nextState) {
     var confidence = 0;
-    if (nextState.country === 'North Korea') {
+    if (nextState.country === 'North Korea.') {
       confidence = 0;
     } else {
       confidence = 0.5;
@@ -221,8 +221,8 @@ var KumquatMain = React.createClass({
 
         <select id="offer" className="form-control" onChange={this._handleOfferChange} value={this.state.offer}>
           <option selected={!this.state.offer} disabled hidden value=''></option>
-          <option value="offer">have an offer from a US employer</option>
-          <option value="transfer">am transferring to a US branch of my current company</option>
+          <option value="offer">have an offer from a US employer.</option>
+          <option value="transfer">am transferring to a US branch of my current company.</option>
         </select>
         </div>
       );
@@ -235,7 +235,7 @@ var KumquatMain = React.createClass({
       return null;
     }
     if (this.state.offer === 'offer') {
-      if (this.state.country === 'Mexico' || this.state.country === 'Canada') {
+      if (this.state.country === 'Mexico.' || this.state.country === 'Canada.') {
         return (
           <div>
           <div className="fadeIn2">

@@ -38,6 +38,15 @@ box-shadow: none !important;
             animation: fadein 2s;
 }
 
+.slideDown {
+      -webkit-animation: slideDown 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: slideDown 1s; /* Firefox < 16 */
+        -ms-animation: slideDown 1s; /* Internet Explorer */
+         -o-animation: slideDown 1s; /* Opera < 12.1 */
+            animation: slideDown 1s;
+
+}
+
 .introRoot {
   text-align: center;
   margin-top:200px;
@@ -66,6 +75,11 @@ box-shadow: none !important;
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { top:-51px;}
+  to { top:0px;}
 }
 
 .twitter-typeahead {
@@ -164,11 +178,15 @@ box-shadow: none !important;
 }
 
 .progress-bar {
-  background-color: red;
+  background-color: white;
 }
 
 .hidden-button {
   display: none;
+}
+
+.hidden-nav {
+  display:none;
 }
 
 *:focus {

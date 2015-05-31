@@ -46,6 +46,7 @@ body {
 
 .twitter-typeahead {
   background: rgb(66, 66, 186);
+  top:5px;
 }
 
 .tt-input, /* UPDATE: newer versions use tt-input instead of tt-query */
@@ -53,11 +54,12 @@ body {
     background-color: rgb(66, 66, 186) !important;
     color: white;
     width: 300px;
-    height: 30px;
-    font-size: 24px;
-    line-height: 30px;
+    font-weight: 300;
+    height: 1.1;
+    font-size: 36px;
+    line-height: 1.1;
     outline: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px dotted white;
     border-top: none;
     border-left: none;
     border-right: none;

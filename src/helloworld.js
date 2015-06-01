@@ -36,7 +36,7 @@ var KumquatIntro = React.createClass({
 
     setTimeout(function() {
       $('.hidden-button').removeClass('hidden-button').addClass('fadeIn').focus();
-    }, 100);
+    }, 3300);
 
       setTimeout(function() {
       $('.hidden-nav').removeClass('hidden-nav').addClass('slideDown');
@@ -255,7 +255,7 @@ var KumquatMain = React.createClass({
 
             </div>
             <br />
-            <button id="callButton" className = "btn fadeIn2 btn-default" onClick={this._handleCall}>Call an experienced attorney</button>
+            <button id="callButton" className = "btn btn-lg fadeIn2 btn-default" onClick={this._handleCall}>Call an experienced attorney</button>
           
             </div>
         );

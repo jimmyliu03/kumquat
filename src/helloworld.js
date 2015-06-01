@@ -239,7 +239,8 @@ var KumquatMain = React.createClass({
         return (
           <div>
           <div className="fadeIn2">
-            <h1>Get a TN or H1B visa</h1>
+          <br/><br/><br/><br/><br/><br/>
+            <h1>Get a TN or H-1B visa. You may also qualify for an O-1 visa. </h1>
           </div>
          <video height="100" id="localVideo"></video>
         <div id="remotesVideos"></div>
